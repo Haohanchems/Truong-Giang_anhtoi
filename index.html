@@ -4,553 +4,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="The Spotlight - chuyên trang nhìn lại hành trình và phong cách nghệ thuật của Trường Giang.">
-    <title>THE SPOTLIGHT | Trường Giang</title>
-
-    <style>
-        :root {
-            --bg: #11110f;
-            --surface: #1b1a17;
-            --surface-light: #24221d;
-            --gold: #d7b56d;
-            --gold-light: #f0d99f;
-            --text: #f2eee5;
-            --muted: #b9b2a4;
-            --line: rgba(215, 181, 109, 0.35);
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            margin: 0;
-            background: var(--bg);
-            color: var(--text);
-            font-family: Georgia, "Times New Roman", serif;
-            font-size: 17px;
-            line-height: 1.8;
-        }
-
-        a {
-            color: var(--gold-light);
-        }
-
-        a:focus-visible {
-            outline: 3px solid var(--gold-light);
-            outline-offset: 4px;
-        }
-
-        .site-header {
-            padding: 42px 22px 30px;
-            text-align: center;
-            border-bottom: 1px solid var(--line);
-            background:
-                radial-gradient(ellipse at top, rgba(215, 181, 109, 0.12), transparent 60%),
-                var(--bg);
-        }
-
-        .eyebrow {
-            margin: 0 0 8px;
-            color: var(--gold);
-            font-family: Arial, sans-serif;
-            font-size: 12px;
-            font-weight: bold;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-        }
-
-        h1 {
-            margin: 0;
-            color: var(--gold-light);
-            font-size: clamp(2.5rem, 7vw, 5rem);
-            line-height: 1.05;
-            letter-spacing: 0.13em;
-        }
-
-        .tagline {
-            margin: 14px 0 0;
-            color: var(--muted);
-            font-size: 0.95rem;
-            font-style: italic;
-            letter-spacing: 0.08em;
-        }
-
-        .edition {
-            margin: 10px 0 0;
-            color: var(--gold);
-            font-family: Arial, sans-serif;
-            font-size: 0.72rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-        }
-
-        .site-nav {
-            position: sticky;
-            top: 0;
-            z-index: 10;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px 30px;
-            padding: 15px 20px;
-            background: rgba(27, 26, 23, 0.96);
-            border-bottom: 1px solid var(--line);
-            backdrop-filter: blur(8px);
-        }
-
-        .site-nav a {
-            color: var(--text);
-            font-family: Arial, sans-serif;
-            font-size: 0.82rem;
-            text-decoration: none;
-            letter-spacing: 0.04em;
-        }
-
-        .site-nav a:hover {
-            color: var(--gold-light);
-        }
-
-        main {
-            width: min(1120px, calc(100% - 48px));
-            margin: 0 auto;
-            padding: 48px 0 70px;
-        }
-
-        .intro-line {
-            max-width: 760px;
-            margin: 0 auto 52px;
-            color: var(--muted);
-            text-align: center;
-            font-size: 1.08rem;
-        }
-
-        .section {
-            margin: 0 0 76px;
-            scroll-margin-top: 90px;
-        }
-
-        .section-heading {
-            display: flex;
-            align-items: baseline;
-            gap: 16px;
-            margin: 0 0 26px;
-            padding-bottom: 12px;
-            border-bottom: 1px solid var(--line);
-        }
-
-        .section-number {
-            color: var(--gold);
-            font-family: Arial, sans-serif;
-            font-size: 0.8rem;
-            letter-spacing: 0.15em;
-        }
-
-        h2 {
-            margin: 0;
-            color: var(--gold-light);
-            font-size: clamp(1.55rem, 3vw, 2.15rem);
-            font-weight: normal;
-        }
-
-        h3 {
-            margin: 0 0 12px;
-            color: var(--gold);
-            font-size: 1.3rem;
-            font-weight: normal;
-        }
-
-        p {
-            margin: 0 0 18px;
-        }
-
-        .lead {
-            color: #e4dccb;
-            font-size: 1.18rem;
-        }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: minmax(0, 1fr) minmax(280px, 0.9fr);
-            gap: 34px;
-            align-items: center;
-        }
-
-        figure {
-            margin: 0;
-            padding: 12px;
-            background: var(--surface);
-            border: 1px solid rgba(215, 181, 109, 0.18);
-        }
-
-        figure img {
-            display: block;
-            width: 100%;
-            height: auto;
-            max-height: 680px;
-            object-fit: contain;
-            background: #080808;
-        }
-
-        figcaption {
-            padding: 10px 4px 2px;
-            color: var(--muted);
-            font-family: Arial, sans-serif;
-            font-size: 0.78rem;
-            line-height: 1.5;
-        }
-
-        .text-panel {
-            padding: 4px 0;
-        }
-
-        .timeline {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 18px;
-            margin: 28px 0;
-        }
-
-        .timeline article {
-            padding: 22px;
-            background: var(--surface);
-            border-top: 2px solid var(--gold);
-        }
-
-        .timeline p {
-            margin-bottom: 0;
-            color: var(--muted);
-            font-size: 0.95rem;
-        }
-
-        .program-list {
-            padding-left: 24px;
-        }
-
-        .program-list li {
-            margin: 10px 0;
-            padding-left: 5px;
-        }
-
-        .quote-panel {
-            margin: 30px 0;
-            padding: 26px 30px;
-            background: var(--surface-light);
-            border-left: 3px solid var(--gold);
-            color: var(--gold-light);
-            font-size: 1.25rem;
-            font-style: italic;
-        }
-
-        .editor-note {
-            padding: 30px;
-            background: linear-gradient(135deg, #211f19, #171613);
-            border: 1px solid var(--line);
-        }
-
-        .editor-note p:last-child {
-            margin-bottom: 0;
-        }
-
-        .source-link {
-            display: inline-block;
-            margin-top: 8px;
-            text-decoration-thickness: 1px;
-            text-underline-offset: 4px;
-        }
-
-        .site-footer {
-            padding: 32px 22px;
-            border-top: 1px solid var(--line);
-            background: var(--surface);
-            color: var(--muted);
-            text-align: center;
-            font-family: Arial, sans-serif;
-            font-size: 0.82rem;
-        }
-
-        .site-footer strong {
-            display: block;
-            margin-bottom: 5px;
-            color: var(--gold);
-            letter-spacing: 0.18em;
-        }
-
-        @media (max-width: 760px) {
-            body {
-                font-size: 16px;
-            }
-
-            main {
-                width: min(100% - 32px, 620px);
-                padding-top: 32px;
-            }
-
-            .feature-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .timeline {
-                grid-template-columns: 1fr;
-            }
-
-            .section {
-                margin-bottom: 56px;
-            }
-
-            .site-nav {
-                gap: 8px 18px;
-            }
-        }
-    </style>
+    <title>Trường Giang - Nghệ sĩ Việt Nam</title>
 </head>
 
 <body>
 
-    <header class="site-header">
-        <p class="eyebrow">The culture &amp; entertainment journal</p>
-        <h1>THE SPOTLIGHT</h1>
-        <p class="tagline">Một gương mặt quen thuộc, nhiều câu chuyện phía sau ánh đèn</p>
-        <p class="edition">Celebrity profile · Special edition</p>
+    <header>
+        <h1>Trường Giang</h1>
+        <p>Một gương mặt quen thuộc của làng giải trí Việt Nam.</p>
     </header>
-
-    <nav class="site-nav" aria-label="Điều hướng chính">
-        <a href="#cover-story">Chân dung</a>
-        <a href="#career">Sự nghiệp</a>
-        <a href="#on-stage">Trên sân khấu</a>
-        <a href="#editors-view">Góc biên tập</a>
-    </nav>
 
     <main>
 
-        <p class="intro-line">
-            Có những nghệ sĩ được nhớ đến bởi một vai diễn, một chương trình,
-            hoặc đơn giản là bởi phong cách xuất hiện không dễ nhầm lẫn.
-            Chuyên đề lần này nhìn lại hành trình của Trường Giang qua những
-            lát cắt quen thuộc trên sân khấu và truyền hình.
-        </p>
-
-        <section class="section" id="cover-story">
-
-            <div class="section-heading">
-                <span class="section-number">01 / COVER STORY</span>
-                <h2>Trường Giang – gương mặt quen của giải trí Việt</h2>
-            </div>
-
-            <div class="feature-grid">
-
-                <figure>
-                    <img src="truong-giang-1.jpg"
-                         alt="Nghệ sĩ Trường Giang mặc bộ vest nâu, đứng tạo dáng trong ảnh chân dung">
-                    <figcaption>Chân dung nghệ sĩ Trường Giang trong trang phục vest nâu.</figcaption>
-                </figure>
-
-                <div class="text-panel">
-                    <h3>Một hành trình được nhận diện bằng cá tính</h3>
-
-                    <p class="lead">
-                        Trường Giang là gương mặt quen thuộc với khán giả qua
-                        nhiều hoạt động hài kịch, điện ảnh và chương trình truyền hình.
-                    </p>
-
-                    <p>
-                        Trên hành trình hoạt động nghệ thuật, anh xây dựng hình ảnh
-                        gắn với lối diễn hài gần gũi, cách trò chuyện đời thường và
-                        khả năng tạo không khí trong các chương trình giải trí.
-                        Sự thân thuộc ấy giúp khán giả dễ dàng nhận ra anh giữa
-                        một thị trường có rất nhiều gương mặt và phong cách khác nhau.
-                    </p>
-
-                    <p>
-                        Một nghệ sĩ hoạt động lâu năm thường được nhìn nhận qua
-                        nhiều vai trò: người biểu diễn, người dẫn dắt câu chuyện
-                        và cả nhân vật tạo nên những khoảnh khắc được bàn luận.
-                        Với Trường Giang, mỗi vai trò lại đem đến một góc nhìn riêng.
-                    </p>
-                </div>
-
-            </div>
-        </section>
-
-        <section class="section" id="career">
-
-            <div class="section-heading">
-                <span class="section-number">02 / CAREER</span>
-                <h2>Những dấu mốc đáng chú ý</h2>
-            </div>
+        <section>
+            <h2>Giới thiệu</h2>
 
             <p>
-                Sự nghiệp của một nghệ sĩ giải trí không chỉ được tạo nên bởi
-                một lần xuất hiện nổi bật. Đó còn là quá trình thử sức ở nhiều
-                định dạng khác nhau, từ sân khấu trực tiếp đến phim ảnh và
-                chương trình truyền hình.
+                Trường Giang là một nghệ sĩ hoạt động trong lĩnh vực
+                hài kịch, điện ảnh và truyền hình. Anh được nhiều khán
+                giả biết đến qua phong cách diễn xuất hài hước và gần gũi.
             </p>
 
-            <div class="timeline">
+            <img src="truong-giang-1.jpg"
+                 alt="Nghệ sĩ Trường Giang mặc vest nâu"
+                 width="300">
 
-                <article>
-                    <h3>Sân khấu hài</h3>
-                    <p>
-                        Đây là một trong những không gian gắn liền với hình ảnh
-                        Trường Giang, nơi lối diễn gần gũi và nhịp gây cười được
-                        thể hiện trực tiếp trước khán giả.
-                    </p>
-                </article>
+        </section>
 
-                <article>
-                    <h3>Điện ảnh</h3>
-                    <p>
-                        Việc tham gia các dự án phim mở rộng phạm vi hoạt động
-                        của anh, đồng thời đặt ra yêu cầu khác với diễn xuất
-                        trên sân khấu.
-                    </p>
-                </article>
+        <section>
+            <h2>Sự nghiệp</h2>
 
-                <article>
-                    <h3>Truyền hình</h3>
-                    <p>
-                        Các chương trình giải trí đưa hình ảnh nghệ sĩ đến gần
-                        khán giả qua những cuộc trò chuyện, thử thách và tình
-                        huống không hoàn toàn được sắp đặt trước.
-                    </p>
-                </article>
+            <p>
+                Trong quá trình hoạt động nghệ thuật, Trường Giang
+                tham gia nhiều chương trình truyền hình và các dự án
+                điện ảnh. Anh cũng thử sức ở vai trò người dẫn chương trình.
+            </p>
 
-            </div>
+            <h3>Một số chương trình nổi bật</h3>
 
-            <figure>
-                <img src="truong-giang-2.jpg"
-                     alt="Trường Giang ôm một người đồng nghiệp trên sân khấu, phía sau có các nghệ sĩ khác">
-                <figcaption>Một khoảnh khắc tương tác giữa các nghệ sĩ trên sân khấu.</figcaption>
-            </figure>
-
-            <h3>Một vài chương trình khán giả có thể nhận ra</h3>
-
-            <ul class="program-list">
-                <li><strong>Ơn Giời Cậu Đây Rồi!</strong> – chương trình hài tình huống, nơi nghệ sĩ tham gia xử lý các tình huống ứng biến.</li>
-                <li><strong>2 Ngày 1 Đêm</strong> – chương trình thực tế kết hợp trải nghiệm, vận động và tương tác giữa các thành viên.</li>
-                <li><strong>Các dự án điện ảnh và sân khấu</strong> – những định dạng khác nhau cho thấy phạm vi hoạt động đa dạng của nghệ sĩ.</li>
+            <ul>
+                <li>Ơn Giời Cậu Đây Rồi!</li>
+                <li>2 Ngày 1 Đêm</li>
+                <li>Các chương trình hài kịch và truyền hình khác</li>
             </ul>
 
-        </section>
-
-        <section class="section" id="on-stage">
-
-            <div class="section-heading">
-                <span class="section-number">03 / ON THE STAGE</span>
-                <h2>Phong cách biểu diễn: dấu ấn riêng và phản ứng khán giả</h2>
-            </div>
-
-            <div class="feature-grid">
-
-                <div class="text-panel">
-                    <h3>Không chỉ là câu chuyện gây cười</h3>
-
-                    <p>
-                        Trong chương trình giải trí, người biểu diễn không chỉ
-                        truyền tải lời thoại. Họ còn phải quan sát phản ứng của
-                        khán giả, điều chỉnh nhịp độ và tìm cách giữ sự chú ý
-                        trong suốt phần xuất hiện của mình.
-                    </p>
-
-                    <p>
-                        Trường Giang thường tạo dấu ấn bằng cách trò chuyện tự
-                        nhiên, sử dụng biểu cảm và đưa những tình huống đời
-                        thường vào phần thể hiện. Đây là kiểu phong cách có
-                        ưu điểm là dễ tiếp cận, nhưng cũng khiến từng khoảnh
-                        khắc trên sân khấu dễ trở thành chủ đề để khán giả
-                        nhận xét và tranh luận.
-                    </p>
-
-                    <p>
-                        Sau cùng, sức hấp dẫn của một tiết mục không chỉ nằm
-                        ở việc nghệ sĩ nói bao nhiêu, mà còn ở việc khán giả
-                        nhớ điều gì sau khi tiết mục kết thúc.
-                    </p>
-                </div>
-
-                <figure>
-                    <img src="truong-giang-3.jpg"
-                         alt="Trường Giang mặc áo vàng cầm micro trên sân khấu, bên cạnh là một nữ đồng nghiệp">
-                    <figcaption>Trường Giang trong một khoảnh khắc dẫn chương trình trên sân khấu.</figcaption>
-                </figure>
-
-            </div>
-
-            <blockquote class="quote-panel">
-                “Có người bước lên sân khấu để kể một câu chuyện.
-                Có người khiến khán giả còn tiếp tục bàn luận về câu chuyện ấy
-                sau khi ánh đèn đã tắt.”
-            </blockquote>
+            <img src="truong-giang-2.jpg"
+                 alt="Trường Giang cùng các nghệ sĩ trên sân khấu"
+                 width="300">
 
         </section>
 
-        <section class="section" id="editors-view">
-
-            <div class="section-heading">
-                <span class="section-number">04 / EDITOR'S VIEW</span>
-                <h2>Góc nhìn biên tập: khi sự quen thuộc trở thành thương hiệu</h2>
-            </div>
-
-            <div class="editor-note">
-
-                <h3>Ánh đèn sân khấu và nghệ thuật giữ sự chú ý</h3>
-
-                <p>
-                    Trong ngành giải trí, được chú ý đã là một lợi thế; duy trì
-                    sự chú ý lại là một câu chuyện hoàn toàn khác. Một nghệ sĩ
-                    có cá tính rõ ràng thường dễ được nhận diện, nhưng cá tính
-                    ấy cũng đồng nghĩa với việc mỗi lần xuất hiện đều có thể
-                    trở thành chủ đề để công chúng đánh giá.
-                </p>
-
-                <p>
-                    Trường Giang là ví dụ thú vị cho điều đó. Sự hoạt ngôn,
-                    gần gũi và chủ động trong giao tiếp góp phần tạo nên hình
-                    ảnh quen thuộc của anh. Dĩ nhiên, ranh giới giữa tự tin
-                    và xuất hiện hơi nhiều đôi khi mỏng hơn người ta tưởng.
-                    Khán giả có thể thích một người biết khuấy động không khí,
-                    nhưng vẫn luôn dành quyền quyết định xem khoảnh khắc nào
-                    thật sự đáng nhớ.
-                </p>
-
-                <p>
-                    Có lẽ đó cũng là điều thú vị của nghề biểu diễn: nghệ sĩ
-                    có thể chuẩn bị lời thoại, ánh sáng và cách bước ra sân khấu,
-                    nhưng phản ứng cuối cùng vẫn thuộc về khán giả. Spotlight
-                    có thể được bật lên, còn việc giữ nó bao lâu thì không ai
-                    quyết định một mình được.
-                </p>
-
-                <p>
-                    Đây là góc nhìn bình luận về hình ảnh công chúng và phong
-                    cách biểu diễn, không phải kết luận về đời tư hay con người
-                    ngoài sân khấu của nghệ sĩ.
-                </p>
-
-            </div>
+        <section>
+            <h2>Phong cách nghệ thuật</h2>
 
             <p>
-                Bạn có thể tham khảo thêm thông tin tổng quan về nghệ sĩ tại
-                <a class="source-link"
-                   href="https://vi.wikipedia.org/wiki/Tr%C6%B0%E1%BB%9Dng_Giang"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    trang thông tin Trường Giang trên Wikipedia
-                </a>.
+                Trường Giang thường sử dụng lối diễn xuất tự nhiên,
+                biểu cảm và cách trò chuyện gần gũi. Phong cách này
+                giúp anh tạo được dấu ấn riêng trong các chương trình
+                giải trí.
             </p>
 
+            <p>
+                Tuy nhiên, một nghệ sĩ xuất hiện thường xuyên cũng
+                khó tránh khỏi những ý kiến trái chiều từ khán giả.
+                Sự chú ý đôi khi là lợi thế, nhưng giữ được thiện cảm
+                lâu dài mới là điều đáng quan tâm.
+            </p>
+
+            <img src="truong-giang-3.jpg"
+                 alt="Trường Giang cầm micro biểu diễn trên sân khấu"
+                 width="300">
+
+        </section>
+
+        <section>
+            <h2>Tìm hiểu thêm</h2>
+
+            <p>
+                Bạn có thể tìm hiểu thêm về nghệ sĩ Trường Giang
+                tại
+                <a href="https://vi.wikipedia.org/wiki/Tr%C6%B0%E1%BB%9Dng_Giang">
+                    Wikipedia
+                </a>.
+            </p>
         </section>
 
     </main>
 
-    <footer class="site-footer">
-        <strong>THE SPOTLIGHT</strong>
-        <p>Celebrity Magazine · HTML5 Final Project</p>
-        <p>Nội dung được biên soạn theo hướng bình luận giải trí và quan sát phong cách biểu diễn.</p>
+    <footer>
+        <p>HTML5 Final Project - The Spotlight</p>
     </footer>
 
 </body>
